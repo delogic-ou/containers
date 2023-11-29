@@ -21,6 +21,7 @@ RUN cd /opt \
     && ./configure --with-compat --add-dynamic-module=/opt/ngx_http_geoip2_module --with-stream \
     && make modules
 
+
 FROM nginx:$NGINX_VERSION
 
 LABEL org.opencontainers.image.authors="sre@delogic.io" \

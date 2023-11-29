@@ -15,7 +15,7 @@ RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform
 FROM python:3.11-slim-buster
 
 LABEL org.opencontainers.image.authors="sre@delogic.io" \
-      org.opencontainers.image.description="Docker image for CD/CD pre-commit checks" \
+      org.opencontainers.image.description="Docker image for CD/CD pre-commit checks using Terraform/Terragrunt" \
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.ref.name="debian:buster-slim" \
       org.opencontainers.image.source="https://github.com/delogic-io/containers" \

@@ -12,7 +12,7 @@ RUN wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraf
 FROM gcr.io/google.com/cloudsdktool/google-cloud-cli:alpine
 
 LABEL org.opencontainers.image.authors="sre@delogic.io" \
-      org.opencontainers.image.description="Docker image for CI/CD GCloud builds" \
+      org.opencontainers.image.description="Docker image for CI/CD GCloud builds using Terraform/Terragrunt" \
       org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.ref.name="alpine:3" \
       org.opencontainers.image.source="https://github.com/delogic-io/containers" \
