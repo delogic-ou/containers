@@ -19,5 +19,5 @@ RUN apk add --no-cache \
   bind-tools \
   net-tools \
   inetutils-telnet
-  
+
 CMD ["/bin/bash"]

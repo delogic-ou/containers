@@ -1,9 +1,15 @@
-FROM alpine:3 as apps
-
 ARG TARGETARCH=${TARGETARCH:-amd64}
 ARG TFLINT_VERSION=${TFLINT_VERSION:-0.44.1}
 ARG TERRAFORM_VERSION=${TERRAFORM_VERSION:-1.2.1}
 ARG TERRAGRUNT_VERSION=${TERRAGRUNT_VERSION:-0.44.1}
+ARG PRECOMMIT_VERSION=${PRECOMMIT_VERSION:-3.2.2}
+
+FROM alpine:3 as apps
+
+ARG TARGETARCH
+ARG TFLINT_VERSION
+ARG TERRAFORM_VERSION
+ARG TERRAGRUNT_VERSION
 
 RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip && \
   unzip terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip && \
@@ -22,18 +28,18 @@ LABEL org.opencontainers.image.authors="sre@delogic.io" \
       org.opencontainers.image.title="pre-commit-tf" \
       org.opencontainers.image.vendor="Delogic.io"
 
-ARG PRECOMMIT_VERSION=${PRECOMMIT_VERSION:-3.2.2}
+ARG PRECOMMIT_VERSION
 ENV DEBIAN_FRONTEND=noninteractive \
     OS_FLAVOUR="debian-10" \
     OS_NAME="linux"
 
-COPY --from=apps /terraform ./usr/bin/terraform
-COPY --from=apps /tflint ./usr/bin/tflint
-COPY --from=apps /terragrunt ./usr/bin/terragrunt
+COPY --from=apps /terraform /usr/bin/terraform
+COPY --from=apps /tflint /usr/bin/tflint
+COPY --from=apps /terragrunt /usr/bin/terragrunt
 
-RUN apt-get update && apt-get install -y git \
-  && rm -rf /var/lib/apt/lists/*
-RUN pip install pre-commit==${PRECOMMIT_VERSION} --no-cache-dir
+RUN apt-get update && apt-get install -y --no-install-recommends git \
+  && rm -rf /var/lib/apt/lists/* \
+  && pip install --no-cache-dir pre-commit==${PRECOMMIT_VERSION}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN APPS=( \
