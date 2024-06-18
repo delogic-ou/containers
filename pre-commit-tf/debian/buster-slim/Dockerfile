@@ -11,7 +11,8 @@ ARG TFLINT_VERSION
 ARG TERRAFORM_VERSION
 ARG TERRAGRUNT_VERSION
 
-RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip && \
+RUN apk --no-cache add wget unzip && \
+  wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip && \
   unzip terraform_${TERRAFORM_VERSION}_linux_${TARGETARCH}.zip && \
   wget https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint_linux_${TARGETARCH}.zip && \
   unzip tflint_linux_${TARGETARCH}.zip && \
