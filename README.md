@@ -24,7 +24,7 @@ $ docker build -t delogic-io/nginx-geoip2:1.24.0-alpine .
 
 ## License
 
-Copyright &copy; 2023-2024 Delogic.io
+Copyright &copy; 2023-2025 Delogic.io
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
 
