@@ -5,7 +5,7 @@ Various applications, provided by [Delogic OU](https://delogic.io), containerize
 ## TL;DR
 
 ```bash
-$ git clone https://github.com/delogic-io/containers.git
+$ git clone https://github.com/delogic-ou/containers.git
 $ cd APP/BASE-OS
 $ docker build -t delogic-io/APP:TAG .
 ```
