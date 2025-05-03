@@ -1,6 +1,6 @@
-# Delogic Container Library
+# Container Library
 
-Various applications, provided by [Delogic](https://delogic.io), containerized and ready to launch. Even though we mostly use these apps for internal purposes, we decided to share them.
+Various applications, provided by [Delogic OU](https://delogic.io), containerized and ready to launch. Even though we mostly use these apps for internal purposes, we decided to share them.
 
 ## TL;DR
 
@@ -24,7 +24,7 @@ $ docker build -t delogic-io/nginx-geoip2:1.24.0-alpine .
 
 ## License
 
-Copyright &copy; 2023-2025 Delogic OÜ
+Copyright &copy; 2023-2025 Delogic OU
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
 
